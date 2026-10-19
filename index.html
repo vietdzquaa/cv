@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV - Nguyễn Huy Việt | Software Engineer Intern</title>
+  <meta name="description" content="CV Nguyễn Huy Việt - Software Engineer Intern (.NET, ReactJS, TypeScript, Java, SQL Server)" />
+  <meta property="og:title" content="CV - Nguyễn Huy Việt | Software Engineer Intern" />
+  <meta property="og:description" content="Sinh viên năm cuối Kỹ thuật phần mềm ĐH FPT - Chuyên sâu C# / .NET, ReactJS, TypeScript, RESTful API, SQL Server." />
+  <meta property="og:type" content="profile" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1a5296;
+      --primary-dark: #123c70;
+      --primary-light: #eef4fb;
+      --primary-border: #d0e1f5;
+      --accent-green: #1f7a4c;
+      --text-main: #1f2937;
+      --text-secondary: #4b5563;
+      --text-muted: #6b7280;
+      --bg-sidebar: #f4f7fb;
+      --bg-page: #e5e7eb;
+      --border-color: #d1d5db;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Top Action Bar */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #0f172a;
+      color: #fff;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .topbar-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .topbar-badge {
+      background: #1d4ed8;
+      color: #fff;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.15s ease;
+      font-family: inherit;
+    }
+
+    .btn-ghost {
+      background: rgba(255, 255, 255, 0.1);
+      color: #f8fafc;
+      border-color: rgba(255, 255, 255, 0.18);
+    }
+
+    .btn-ghost:hover, .btn-ghost.active {
+      background: rgba(255, 255, 255, 0.22);
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+
+    .btn-primary {
+      background: #2563eb;
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      background: #1d4ed8;
+    }
+
+    /* Main Container */
+    .viewer-wrapper {
+      padding: 28px 16px 48px;
+      display: flex;
+      justify-content: center;
+    }
+
+    /* A4 CV Sheet */
+    .cv-sheet {
+      width: 100%;
+      max-width: 920px;
+      min-height: 1120px;
+      background: #ffffff;
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.14);
+      border-radius: 4px;
+      display: grid;
+      grid-template-columns: 295px 1fr;
+      overflow: hidden;
+    }
+
+    /* Left Sidebar */
+    .cv-sidebar {
+      background: var(--bg-sidebar);
+      padding: 32px 24px;
+      border-right: 1px solid #e2e8f0;
+    }
+
+    .profile-header {
+      text-align: center;
+      margin-bottom: 26px;
+    }
+
+    .avatar-wrap {
+      width: 128px;
+      height: 145px;
+      margin: 0 auto 14px;
+      border-radius: 50% / 46%;
+      overflow: hidden;
+      border: 3px solid var(--primary);
+      box-shadow: 0 4px 12px rgba(26, 82, 150, 0.18);
+      background: #fff;
+    }
+
+    .avatar-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .profile-name {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: 0.3px;
+      margin-bottom: 4px;
+    }
+
+    .profile-role {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--text-secondary);
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+
+    .profile-status {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent-green);
+    }
+
+    .side-section {
+      margin-bottom: 22px;
+    }
+
+    .side-title {
+      font-size: 12.5px;
+      font-weight: 800;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      padding-bottom: 5px;
+      border-bottom: 2px solid var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .contact-list {
+      list-style: none;
+      font-size: 12.5px;
+    }
+
+    .contact-list li {
+      display: grid;
+      grid-template-columns: 58px 1fr;
+      margin-bottom: 6px;
+      align-items: baseline;
+    }
+
+    .contact-label {
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .contact-value a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      word-break: break-all;
+    }
+
+    .contact-value a:hover {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    .edu-school {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 2px;
+    }
+
+    .edu-major {
+      font-size: 12.5px;
+      color: var(--text-secondary);
+      margin-bottom: 2px;
+    }
+
+    .edu-time {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    .skill-group {
+      margin-bottom: 12px;
+    }
+
+    .skill-group-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .tag {
+      font-size: 11.5px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      color: #334155;
+      font-weight: 500;
+    }
+
+    .tag.highlight {
+      background: var(--primary-light);
+      border-color: var(--primary-border);
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .side-bullets {
+      list-style: none;
+      font-size: 12.2px;
+      color: var(--text-secondary);
+    }
+
+    .side-bullets li {
+      position: relative;
+      padding-left: 12px;
+      margin-bottom: 5px;
+    }
+
+    .side-bullets li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-weight: bold;
+    }
+
+    /* Right Main Content */
+    .cv-main {
+      padding: 34px 34px 36px;
+    }
+
+    .main-section {
+      margin-bottom: 24px;
+    }
+
+    .main-title {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid var(--primary);
+      margin-bottom: 12px;
+    }
+
+    .summary-text {
+      font-size: 13px;
+      color: var(--text-secondary);
+      text-align: justify;
+      line-height: 1.6;
+    }
+
+    .summary-text strong {
+      color: var(--text-main);
+    }
+
+    /* Project Item */
+    .project-item {
+      position: relative;
+      padding-left: 14px;
+      border-left: 3px solid var(--primary);
+      margin-bottom: 18px;
+    }
+
+    .project-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 2px;
+    }
+
+    .project-name {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .project-date {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .project-role {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 2px;
+    }
+
+    .project-desc {
+      font-size: 12.5px;
+      font-style: italic;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .project-bullets {
+      list-style: none;
+      font-size: 12.8px;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+    }
+
+    .project-bullets li {
+      position: relative;
+      padding-left: 13px;
+      margin-bottom: 4px;
+    }
+
+    .project-bullets li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-weight: bold;
+    }
+
+    .project-bullets strong {
+      color: var(--text-main);
+    }
+
+    .project-tech {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    .project-tech strong {
+      color: var(--text-main);
+    }
+
+    /* PDF Embed View */
+    .pdf-container {
+      display: none;
+      width: 100%;
+      max-width: 960px;
+      height: calc(100vh - 80px);
+      background: #fff;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.18);
+    }
+
+    .pdf-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .cv-sheet {
+        grid-template-columns: 1fr;
+      }
+      .cv-sidebar {
+        border-right: none;
+        border-bottom: 1px solid #e2e8f0;
+      }
+      .cv-main {
+        padding: 24px 20px;
+      }
+      .project-header {
+        flex-direction: column;
+        gap: 2px;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+      .topbar {
+        display: none !important;
+      }
+      .viewer-wrapper {
+        padding: 0;
+      }
+      .cv-sheet {
+        box-shadow: none;
+        max-width: 100%;
+      }
+      .pdf-container {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-left">
+      <span>NGUYỄN HUY VIỆT — CV Online</span>
+      <span class="topbar-badge">Software Engineer Intern</span>
+    </div>
+    <div class="topbar-actions">
+      <button id="btnWeb" class="btn btn-ghost active" onclick="switchView('web')">Bản Web tương tác</button>
+      <button id="btnPdf" class="btn btn-ghost" onclick="switchView('pdf')">Xem bản PDF gốc</button>
+      <a class="btn btn-ghost" href="CV-Nguyen-Huy-Viet.pdf" target="_blank" rel="noopener">Mở link PDF trực tiếp ↗</a>
+      <a class="btn btn-primary" href="CV-Nguyen-Huy-Viet.pdf" download="CV-Nguyen-Huy-Viet.pdf">⬇ Tải xuống PDF</a>
+    </div>
+  </header>
+
+  <main class="viewer-wrapper">
+    <!-- Web CV View -->
+    <article id="webView" class="cv-sheet">
+      <!-- Left Column -->
+      <aside class="cv-sidebar">
+        <div class="profile-header">
+          <div class="avatar-wrap">
+            <img src="avatar.jpg" alt="Nguyễn Huy Việt" />
+          </div>
+          <h1 class="profile-name">NGUYỄN HUY VIỆT</h1>
+          <div class="profile-role">SOFTWARE ENGINEER INTERN</div>
+          <div class="profile-status">Sẵn sàng thực tập Full-time</div>
+        </div>
+
+        <section class="side-section">
+          <h2 class="side-title">THÔNG TIN LIÊN HỆ</h2>
+          <ul class="contact-list">
+            <li>
+              <span class="contact-label">SĐT:</span>
+              <span class="contact-value"><a href="tel:0339827017">0339 827 017</a></span>
+            </li>
+            <li>
+              <span class="contact-label">Email:</span>
+              <span class="contact-value"><a href="mailto:Vietnhhe161420@fpt.edu.vn">Vietnhhe161420@fpt.edu.vn</a></span>
+            </li>
+            <li>
+              <span class="contact-label">Địa chỉ:</span>
+              <span class="contact-value">Thạch Thất, Hà Nội</span>
+            </li>
+            <li>
+              <span class="contact-label">GitHub:</span>
+              <span class="contact-value"><a href="https://github.com/tungpro1236" target="_blank" rel="noopener">github.com/tungpro1236</a></span>
+            </li>
+          </ul>
+        </section>
+
+        <section class="side-section">
+          <h2 class="side-title">HỌC VẤN</h2>
+          <div class="edu-school">ĐẠI HỌC FPT (HÀ NỘI)</div>
+          <div class="edu-major">Kỹ thuật phần mềm (Chuyên sâu .NET)</div>
+          <div class="edu-time">2021 – Hiện tại (Năm cuối)</div>
+        </section>
+
+        <section class="side-section">
+          <h2 class="side-title">KỸ NĂNG CHUYÊN MÔN</h2>
+          <div class="skill-group">
+            <div class="skill-group-title">Frontend &amp; Web</div>
+            <div class="tags">
+              <span class="tag highlight">ReactJS</span>
+              <span class="tag highlight">TypeScript</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">HTML5 / CSS3</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group-title">Backend &amp; API</div>
+            <div class="tags">
+              <span class="tag highlight">RESTful API</span>
+              <span class="tag highlight">C# (.NET)</span>
+              <span class="tag">Java</span>
+              <span class="tag highlight">SQL Server</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group-title">Công cụ &amp; Kiểm thử</div>
+            <div class="tags">
+              <span class="tag highlight">Postman</span>
+              <span class="tag">Git / GitHub</span>
+              <span class="tag">Tomcat</span>
+              <span class="tag">VS Code / NetBeans</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="side-section">
+          <h2 class="side-title">CHỨNG CHỈ &amp; ĐÀO TẠO</h2>
+          <ul class="side-bullets">
+            <li>Computer Networking Certificate (2023)</li>
+            <li>Web Design Certificate (2023)</li>
+            <li>Academic Preparatory English (2023)</li>
+          </ul>
+        </section>
+
+        <section class="side-section">
+          <h2 class="side-title">NGOẠI NGỮ &amp; KỸ NĂNG</h2>
+          <ul class="side-bullets">
+            <li><strong>Tiếng Anh:</strong> Đọc hiểu tài liệu chuyên ngành</li>
+            <li><strong>Tiếng Nhật:</strong> Giao tiếp cơ bản (Elementary)</li>
+            <li><strong>Kỹ năng:</strong> Giải quyết vấn đề, Làm việc nhóm, Tự học nhanh</li>
+          </ul>
+        </section>
+      </aside>
+
+      <!-- Right Column -->
+      <div class="cv-main">
+        <section class="main-section">
+          <h2 class="main-title">MỤC TIÊU NGHỀ NGHIỆP &amp; TÓM TẮT</h2>
+          <p class="summary-text">
+            Sinh viên năm cuối chuyên ngành Kỹ thuật phần mềm (ĐH FPT), được đào tạo bài bản về nền tảng <strong>C# / .NET</strong>, đồng thời có kinh nghiệm thực hành qua các dự án Web hiện đại (<strong>ReactJS, TypeScript, RESTful API</strong>). Nắm vững tư duy lập trình hướng đối tượng (OOP), thiết kế cơ sở dữ liệu quan hệ trên SQL Server và kiểm thử API bằng Postman. Sẵn sàng làm việc <strong>Full-time</strong> ngay trong giai đoạn thực tập, tiếp thu công nghệ nhanh và mong muốn đóng góp hiệu quả vào các sản phẩm phần mềm của quý công ty.
+          </p>
+        </section>
+
+        <section class="main-section">
+          <h2 class="main-title">DỰ ÁN &amp; KINH NGHIỆM THỰC CHIẾN</h2>
+
+          <div class="project-item">
+            <div class="project-header">
+              <h3 class="project-name">IT DEVICE MANAGEMENT SYSTEM</h3>
+              <span class="project-date">10/2023 – 02/2024</span>
+            </div>
+            <div class="project-role">Vai trò: Frontend &amp; API Developer</div>
+            <div class="project-desc">Hệ thống quản lý thông tin thiết bị máy tính, theo dõi tình trạng và cấp phát thiết bị.</div>
+            <ul class="project-bullets">
+              <li>Xây dựng giao diện Web bằng <strong>ReactJS</strong> và <strong>TypeScript</strong> hiển thị danh sách, tìm kiếm và lọc thiết bị theo trạng thái.</li>
+              <li>Phát triển các <strong>RESTful API</strong> để thực hiện thêm, sửa, xóa (CRUD) và cập nhật thông tin cấu hình thiết bị.</li>
+              <li>Thiết kế cơ sở dữ liệu trên <strong>SQL Server</strong> để lưu trữ danh mục thiết bị, thông số kỹ thuật và lịch sử cấp phát.</li>
+              <li>Kiểm thử toàn bộ các luồng chức năng API bằng <strong>Postman</strong> đảm bảo tính chính xác của dữ liệu.</li>
+            </ul>
+            <div class="project-tech">
+              <strong>Công nghệ:</strong> ReactJS, TypeScript, RESTful API, C# (.NET), SQL Server, Postman, Git.
+            </div>
+          </div>
+
+          <div class="project-item">
+            <div class="project-header">
+              <h3 class="project-name">ONLINE LEARNING PLATFORM (SWP391)</h3>
+              <span class="project-date">05/2023 – 09/2023</span>
+            </div>
+            <div class="project-role">Vai trò: Backend Developer &amp; UI Contributor</div>
+            <div class="project-desc">Nền tảng quản lý khóa học trực tuyến, làm bài tập và đánh giá kết quả học tập.</div>
+            <ul class="project-bullets">
+              <li>Xây dựng Backend và xử lý Business Logic luồng đăng ký học, làm bài trắc nghiệm bằng <strong>Java</strong>.</li>
+              <li>Thiết kế cơ sở dữ liệu quan hệ trên <strong>SQL Server</strong>, chuẩn hóa bảng và tối ưu truy vấn dữ liệu.</li>
+              <li>Phát triển giao diện web thân thiện với người dùng bằng HTML, CSS, JavaScript.</li>
+              <li>Triển khai và kiểm thử hệ thống trên máy chủ <strong>Apache Tomcat</strong> đảm bảo tính ổn định.</li>
+            </ul>
+            <div class="project-tech">
+              <strong>Công nghệ:</strong> Java, SQL Server, Apache NetBeans, Apache Tomcat, HTML/CSS, JavaScript.
+            </div>
+          </div>
+
+          <div class="project-item">
+            <div class="project-header">
+              <h3 class="project-name">SOFTWARE LAB INTERN &amp; SCHEDULING TOOL</h3>
+              <span class="project-date">10/2023 – 01/2024</span>
+            </div>
+            <div class="project-role">Vai trò: Software Engineering Intern</div>
+            <div class="project-desc">Hỗ trợ kỹ thuật phòng máy và phát triển module quản lý lịch mượn/trả thiết bị thực hành.</div>
+            <ul class="project-bullets">
+              <li>Hỗ trợ thiết lập hạ tầng mạng nội bộ (LAN), cấu hình môi trường phát triển (IDE, DBMS) cho sinh viên.</li>
+              <li>Tham gia xây dựng module quản lý lịch đặt phòng lab và kiểm kê thiết bị phần cứng.</li>
+            </ul>
+            <div class="project-tech">
+              <strong>Công nghệ:</strong> C#, Java, SQL Server, Mạng LAN, Git.
+            </div>
+          </div>
+        </section>
+
+        <section class="main-section">
+          <h2 class="main-title">ĐIỂM NỔI BẬT</h2>
+          <ul class="project-bullets">
+            <li><strong>Cam kết làm việc:</strong> Sẵn sàng làm việc <strong>Full-time</strong> ngay trong thời gian thực tập và có định hướng gắn bó lâu dài.</li>
+            <li><strong>Nền tảng vững chắc:</strong> Tư duy lập trình hướng đối tượng (OOP) tốt từ chuyên ngành .NET, có khả năng thích nghi và làm chủ công nghệ mới nhanh chóng.</li>
+          </ul>
+        </section>
+      </div>
+    </article>
+
+    <!-- Embedded Original PDF View -->
+    <div id="pdfView" class="pdf-container">
+      <iframe src="CV-Nguyen-Huy-Viet.pdf"></iframe>
+    </div>
+  </main>
+
+  <script>
+    function switchView(mode) {
+      const webView = document.getElementById('webView');
+      const pdfView = document.getElementById('pdfView');
+      const btnWeb = document.getElementById('btnWeb');
+      const btnPdf = document.getElementById('btnPdf');
+      if (mode === 'pdf') {
+        webView.style.display = 'none';
+        pdfView.style.display = 'block';
+        btnWeb.classList.remove('active');
+        btnPdf.classList.add('active');
+      } else {
+        webView.style.display = 'grid';
+        pdfView.style.display = 'none';
+        btnWeb.classList.add('active');
+        btnPdf.classList.remove('active');
+      }
+    }
+  </script>
+</body>
+</html>
